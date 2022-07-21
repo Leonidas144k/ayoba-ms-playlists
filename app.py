@@ -1,8 +1,9 @@
+import mimetypes
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
-from datetime import datetime
+from prometheus_flask_exporter import PrometheusMetrics
 
 def video_url_creator(id_lst):
     videos = []
@@ -17,6 +18,7 @@ db = client.AyobaPlaylist
 playlists = db.playlists
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 @app.route('/')
 def playlists_index():
