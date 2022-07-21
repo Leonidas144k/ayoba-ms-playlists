@@ -1,0 +1,28 @@
+<!-- templates/partials/playlists_form.html -->
+
+<fieldset>
+    <legend>{{ title }}</legend>
+    <!-- TITLE -->
+    <p>
+        <label for='playlist-title'>Title</label><br>
+        <input id='playlist-title' type='text' name='title' value='{{ playlist.title }}'/>
+    </p>
+    >
+    <!-- DESCRIPTION -->
+    <p>
+      <label for='description'>Description</label><br>
+      <input id='description' type='text' name='description' value='{{ playlist.description }}' />
+    </p>
+    >
+    <!-- VIDEO IDS -->
+    <p>
+      <label for='playlist-video-ids'>Videos</label><br>
+      <p>Add the ID of the videos you want to include in your playlist. Separate with a newline.</p>
+      <textarea id='playlist-video-ids' name='video_ids' rows='10'>{{ "\n".join(playlist.video_ids) }}</textarea>
+    </p>
+</fieldset>
+
+<!-- BUTTON -->
+<p>
+    <button type='submit'>Save Playlist</button>
+</p>
